@@ -53,10 +53,12 @@ node {
       sh "'cd' addressbook"
 
       sh "'git' checkout develop"	
-      sh "'git' pull"
+      sh "'git' pull origin develop"
       sh "'git' checkout qarelease"
-      sh "'git' pull"	      
+      sh "'git' pull origin qarelease"	      
       sh "'git' merge develop"
+      sh "'git' add *"
+      sh "'git commit -m 'new file changes'"
       sh "'git' push origin qarelease"			
 
    }	
