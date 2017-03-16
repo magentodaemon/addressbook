@@ -46,8 +46,13 @@ node {
    }
    stage("MergewithQa")
    {
-      sh "'pwd'"
-      sh "'git' checkout develop"
+      sh "'mkdir' /tmp/uploadtoqarelease"
+      
+      sh "'cd' /tmp/uploadtoqarelease"	
+      sh "'git' clone git@github.com:magentodaemon/addressbook.git"
+      sh "'cd' addressbook"
+
+      sh "'git' checkout develop"	
       sh "'git' pull"
       sh "'git' checkout qarelease"
       sh "'git' pull"	      
