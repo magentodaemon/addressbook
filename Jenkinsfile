@@ -44,7 +44,7 @@ node {
    } 
    stage("MergewithQa")
    {
-      sh "'./test'"
+      sh "'./testscript.sh"
    }	
 
 } 
