@@ -1,5 +1,5 @@
 node {
-   def mvnHome
+/*   def mvnHome
    def version 
    stage('Preparation') {
       git 'https://github.com/magentodaemon/addressbook.git'
@@ -43,7 +43,7 @@ node {
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore deploy/)
       }
-   }
+   } */
    stage("MergewithQa")
    {
       sh "'mkdir' /tmp/uploadtoqarelease"
@@ -60,6 +60,7 @@ node {
       sh "'git' add *"
       sh "'git commit -m 'new file changes'"
       sh "'git' push origin qarelease"			
-
+      sh "'cd' /tmp"
+      sh "'rm -rf' uploadtoqarelease"	 	
    }	
 } 
