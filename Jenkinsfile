@@ -6,6 +6,17 @@ node {
       mvnHome = tool 'LOCAL_MAVEN'
 	  version = '2.3.5' 
    }
+   stage('Review')
+   {
+	sh "'${mvnHome}/bin/mvn' pmd:pmd"
+
+   }
+   stage('Test')
+   {
+	sh "'${mvnHome}/bin/mvn' test"
+
+   }	
+
    stage('Build') {
    //     withMaven(
    //     maven: 'LOCAL_MAVEN', // Maven installation declared in the Jenkins "Global Tool Configuration"
