@@ -44,12 +44,4 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore deploy/)
       }
    }
-   stage("MergewithQa")
-   {
-	sh "'pwd'"
-    //  sh "'git' checkout qarelease"
-    //  sh "'git' merge develop"
-    //  sh "'git' push origin qarelease"			
-
-   }	
 } 
