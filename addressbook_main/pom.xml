@@ -9,11 +9,13 @@
     <name>Vaadin Addressbook example</name>
 
 		<distributionManagement>
-		<snapshotRepository>
-			<id>${env.ART_ID}</id>
-			<name>${env.ART_NAME}</name>
-			<url>${env.ART_URL}</url>
-		</snapshotRepository>
+		
+ <snapshotRepository>
+    <id>snapshots</id>
+    <url>http://localhost:8081/content/repositories/snapshots</url>
+  </snapshotRepository>
+
+
 		<repository>
 		<id>${env.REL_ART_ID}</id>
 			<name>${env.REL_ART_NAME}</name>
