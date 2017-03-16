@@ -47,7 +47,7 @@ node {
       sh "'mkdir' /tmp/uploadtoqarelease"
       
       sh "'cd' /tmp/uploadtoqarelease"	
-      sh "'git' clone git@github.com:magentodaemon/addressbook.git"
+      sh "'git' clone git@github.com:magentodaemon/addressbook.git /tmp/uploadtoqarelease"
       sh "'cd' addressbook"
 
       sh "'git' checkout develop"	
