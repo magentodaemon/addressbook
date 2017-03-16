@@ -46,9 +46,10 @@ node {
    }
    stage("MergewithQa")
    {
-      sh "'git' checkout qarelease"
-      sh "'git' merge develop"
-      sh "'git' push origin qarelease"			
+	sh "'pwd'"
+    //  sh "'git' checkout qarelease"
+    //  sh "'git' merge develop"
+    //  sh "'git' push origin qarelease"			
 
    }	
 } 
