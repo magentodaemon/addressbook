@@ -36,7 +36,7 @@ node {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
-     stage('Publish') {
+   stage('Publish') {
      //nexusPublisher nexusInstanceId: 'NEXUS', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'addressbook_main/target/addressbook.war']], mavenCoordinate: [artifactId: 'addressbook_main', groupId: 'com.edurekademo.tutorial', packaging: 'war', version: '2.3.5']]]
         if (isUnix()) {
          sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore deploy"
@@ -44,4 +44,10 @@ node {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore deploy/)
       }
    }
+   stage("MergewithQa")
+   {
+      git checkout qarelease
+      git merge develop			
+
+   }	
 } 
