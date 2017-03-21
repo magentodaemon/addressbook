@@ -98,8 +98,8 @@ public class CaseInsensitiveComparator extends GenericComparator {
 		}
 		catch(Exception e)
 		{
-			e.printStackTrace();		
 
+			LoggerStackTraceUtil.printErrorMessage(e);
 		}
 		
                 return acutal;
