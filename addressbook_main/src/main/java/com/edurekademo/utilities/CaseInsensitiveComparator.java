@@ -80,8 +80,9 @@ public class CaseInsensitiveComparator extends GenericComparator {
                         obj = v1.getClass().getName(); 
                 }
                 int acutal = LESSER;
-		try{
- 
+	
+		if(v1 != null && v2 != null)
+		{ 
                 	if (obj.equals(DATATYPE_INTEGER)) {
                         	acutal = ((Integer) v1).compareTo((Integer) v2) * determinePosition();
                 	} else if (obj.equals(DATATYPE_LONG)) {
@@ -95,14 +96,8 @@ public class CaseInsensitiveComparator extends GenericComparator {
                 	} else if (obj.equals(DATATYPE_DOUBLE)) {
                         	acutal = ((Double) v1).compareTo((Double) v2) * determinePosition();
                 	}
-		}
-		catch(Exception e)
-		{
-
-			LoggerStackTraceUtil.printErrorMessage(e);
-		}
-		
-                return acutal;
+                }
+		return acutal;
         }
 
 }
