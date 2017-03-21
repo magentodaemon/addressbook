@@ -79,20 +79,29 @@ public class CaseInsensitiveComparator extends GenericComparator {
                 if ("java.lang.Object".equals(obj) && v1!=null) { 
                         obj = v1.getClass().getName(); 
                 }
-                int acutal = LESSER; 
-                if (obj.equals(DATATYPE_INTEGER)) {
-                        acutal = ((Integer) v1).compareTo((Integer) v2) * determinePosition();
-                } else if (obj.equals(DATATYPE_LONG)) {
-                        acutal = ((Long) v1).compareTo((Long) v2) * determinePosition();
-                } else if (obj.equals(DATATYPE_STRING)) {
-                        acutal = ((String) v1).toUpperCase().compareTo(((String) v2).toUpperCase()) * determinePosition();
-                } else if (obj.equals(DATATYPE_DATE)) {
-                        acutal = ((Date) v1).compareTo((Date) v2) * determinePosition();
-                } else if (obj.equals(DATATYPE_FLOAT)) {
-                        acutal = ((Float) v1).compareTo((Float) v2) * determinePosition();
-                } else if (obj.equals(DATATYPE_DOUBLE)) {
-                        acutal = ((Double) v1).compareTo((Double) v2) * determinePosition();
-                }
+                int acutal = LESSER;
+		try{
+ 
+                	if (obj.equals(DATATYPE_INTEGER)) {
+                        	acutal = ((Integer) v1).compareTo((Integer) v2) * determinePosition();
+                	} else if (obj.equals(DATATYPE_LONG)) {
+                        	acutal = ((Long) v1).compareTo((Long) v2) * determinePosition();
+           	     	} else if (obj.equals(DATATYPE_STRING)) {
+                        	acutal = ((String) v1).toUpperCase().compareTo(((String) v2).toUpperCase()) * determinePosition();
+                	} else if (obj.equals(DATATYPE_DATE)) {
+                        	acutal = ((Date) v1).compareTo((Date) v2) * determinePosition();
+                	} else if (obj.equals(DATATYPE_FLOAT)) {
+                        	acutal = ((Float) v1).compareTo((Float) v2) * determinePosition();
+                	} else if (obj.equals(DATATYPE_DOUBLE)) {
+                        	acutal = ((Double) v1).compareTo((Double) v2) * determinePosition();
+                	}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();		
+
+		}
+		
                 return acutal;
         }
 
