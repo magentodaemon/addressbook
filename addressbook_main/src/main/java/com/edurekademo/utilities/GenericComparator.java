@@ -180,8 +180,10 @@ public class GenericComparator implements Comparator, Serializable {
 			 obj = v1.getClass().getName(); 
 		}
 		int acutal = LESSER;
-		if(v1 != null && v2 != null)
-		{		 
+		if(v1 == null || v2 == null)
+		{
+			return acutal;
+		}		 
 			if (obj.equals(DATATYPE_INTEGER)) {
 				acutal = ((Integer) v1).compareTo((Integer) v2) * determinePosition();
 			} else if (obj.equals(DATATYPE_LONG)) {
@@ -197,8 +199,8 @@ public class GenericComparator implements Comparator, Serializable {
 			} else if (obj.equals(DATATYPE_BOOLEAN)) {
 				acutal = ((Boolean) v1).compareTo((Boolean) v2) * determinePosition();
 			}
-		}
-			return acutal;
+			
+			return actual;
 	}
 	/**
 	 * preparing target name of getter method for given sort field
